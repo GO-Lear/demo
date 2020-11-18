@@ -26,8 +26,9 @@ public class SectionDaoImpl implements SectionDao {
     }
 
     @Override
-    public void insertSection(String courseId, String semester, String endTime) {
+    public Integer insertSection(String courseId, String semester, String endTime) {
         sectionRepository.insertSection(courseId, semester, endTime);
+        return sectionRepository.selectSid();
     }
 
     @Override

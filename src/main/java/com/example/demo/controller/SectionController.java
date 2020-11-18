@@ -34,8 +34,9 @@ public class SectionController {
         String courseId = map.get("cid");
         String semester = map.get("semester");
         String endTime = map.get("endTime");
+        String teaId = map.get("uid");
         System.out.println("Section: adding");
-        sectionService.Add(courseId, semester, endTime);
+        sectionService.Add(courseId, semester, endTime, teaId);
         return ResultBean.success(null);
     }
 

@@ -45,4 +45,9 @@ public class TeachesDaoImpl implements TeachesDao {
         }
         return ret;
     }
+
+    @Override
+    public void insertTeach(String teaId, Integer sid) {
+        teachesRepository.insertTeach(sid, teaId);
+    }
 }

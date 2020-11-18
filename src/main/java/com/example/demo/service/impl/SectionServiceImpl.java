@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dao.*;
 import com.example.demo.dto.SectionItem;
+import com.example.demo.entity.Course;
 import com.example.demo.entity.Section;
 import com.example.demo.exception.MyException;
 import com.example.demo.service.SectionService;
@@ -40,10 +41,11 @@ public class SectionServiceImpl implements SectionService {
     }
 
     @Override
-    public void Add(String courseId, String semester, String endTime) throws MyException{
+    public void Add(String courseId, String semester, String endTime, String teaId) throws MyException{
         if (courseDao.findByCourseId(courseId) == null)
             throw new MyException(4, "Course dont exist");
-        sectionDao.insertSection(courseId, semester, endTime);
+        Integer sid = sectionDao.insertSection(courseId, semester, endTime);
+        teachesDao.insertTeach(teaId, sid);
     }
 
     @Override
